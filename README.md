@@ -25,6 +25,7 @@ Comments while following the code on the workshop video. Mostly following some b
 # Problem Solving/Code
 **Creating the star**
 I started with testing a new 2D primitive shape quad() to create a diamond shape as a base for the star
+
 ![image](https://github.com/user-attachments/assets/7452d6d2-5865-4ea0-bb91-aa48ee53cc93)
 
 ![image](https://github.com/user-attachments/assets/5b125eac-b776-4044-a470-3a0c7e70369c)
@@ -47,6 +48,7 @@ In low amounts, this would work. However, once they become dense, it becomes cle
 ![image](https://github.com/user-attachments/assets/26c3b12b-3cc4-4195-aac0-dea304ead16a)
 
 This would be due to the ellipses taking up so much space, and so to reduce this look, I went into looking in uses arcs instead of full ellipses. 
+
 ![image](https://github.com/user-attachments/assets/45603f2a-d4cf-4f09-a496-728ea4706a42)
 
 ![image](https://github.com/user-attachments/assets/b975399e-8a6d-48be-94f5-2e0d75cfc012)
@@ -61,6 +63,7 @@ Using this graph to help me aid in the radians for the arcs for where it starts 
 **Animating the stars**
 
 The stars got animated with a for loop that could call the function that makes a star, with random() at inputs to change the positions and scales of the stars. 
+
 ![image](https://github.com/user-attachments/assets/c0ed1210-2cb8-47e7-ada5-2acb30e451c7)
 ![image](https://github.com/user-attachments/assets/94e57e81-64bf-4781-b0ba-c5d2d149ce28)
 
