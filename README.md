@@ -18,7 +18,7 @@ Link: [https://whosaidthat-3636.github.io/Workshop-7/]
 - Snow
   * to display 40 snow in the loop
   * randomized position
-  * no randomized size to have a set scale to simulate further the idea of snow
+  * min size of 1, max size of 7 to better simulate the idea of snow
 ```
 let starShape = [];
 let walkers = [];
@@ -36,6 +36,7 @@ function setup() {
   for (let i = 0; i < 40; i++) {
     let x = random(0, width);
     let y = random(0, height);
+    this.r = random(1, 7); 
     walkers[i] = new Snow(x, y);
   }
 }
@@ -73,5 +74,56 @@ fill(242, 242, 228);
 ```
 
 ### 3) Class: Snow
-- To further expand I added snow to the background begin the jittering stars
--
+- To further expand I added snow to the background behind the jittering stars
+- Step because shape is moving downwards slowly
+  * snow falls downward randomly between 0.5 and 1.5
+  * have snow reappear from the top after code checks it has reached the bottom edge of the canvas
+ - Adding transparency in fill
+```
+class Snow {
+  constructor(x, y) {
+    this.x = x;
+    this.y = y;
+    this.r = r
+  }
+
+  step() {
+    this.y += random(0.5, 1.5); 
+    if (this.y > height) {
+      this.y = 0; 
+    }
+  }
+
+  show() {
+    fill(255, 255, 255, 150); 
+    noStroke();
+    ellipse(this.x, this.y, this.r * 2, this.r * 2);
+  }
+}
+```
+
+### 4) Applying for function to be executed
+- I had some trouble with this in applying the executiong using the following code
+```
+starShape.move(); 
+starShape.show(); 
+walkers.step(); 
+walkers.show(); 
+```
+- However, after sometime and trial and error I learned that
+  * the code doesn't loop each all objects in the array therefore not working
+```
+function draw() {
+  background(44, 54, 66);
+
+  for (let i = 0; i < starShape.length; i++) {
+    starShape[i].move();
+    starShape[i].show();
+  }
+
+  for (let i = 0; i < walkers.length; i++) {
+    walkers[i].step();
+    walkers[i].show();
+  }
+}
+```
